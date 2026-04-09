@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hasil</title>
+  <style>
+    body {
+      font-family: 'Segoe UI';
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .price {
+      color: #e91e63;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hasil Rekomendasi</h1>
+<h3>Tipe Kulit Kamu: {{ skin_type }}</h3>
+
+<div class="container">
+  {% for product in products %}
+  <div class="card">
+    <div class="title">{{ product.name }}</div>
+    <p>{{ product.category }}</p>
+    <p>{{ product.concern }}</p>
+    <p class="price">Rp {{ product.price }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+</body>
+</html>

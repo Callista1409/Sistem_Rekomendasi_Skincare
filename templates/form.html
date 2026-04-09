@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Data</title>
+  <style>
+    body {
+      font-family: 'Segoe UI';
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    }
+
+    .card {
+      width: 450px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    small {
+      color: gray;
+      font-size: 12px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #ff9a9e, #a18cd1);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>💖 Input Kondisi Kulit</h2>
+
+  <form action="/predict" method="post">
+
+    <label>Age</label>
+    <input type="number" name="age">
+
+    <label>Gender</label>
+    <select name="gender">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <label>Hydration Level</label>
+    <select name="hydration">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+
+    <label>Oil Level</label>
+    <select name="oil">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+
+    <label>Sensitivity</label>
+    <select name="sensitivity">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+
+    <label>Humidity</label>
+    <input type="number" step="0.1" name="humidity">
+    <small>Kelembaban udara (%). Mempengaruhi kondisi kulit, terutama minyak & hidrasi.</small>
+
+    <label>Temperature</label>
+    <input type="number" step="0.1" name="temperature">
+    <small>Suhu lingkungan (°C). Suhu tinggi bisa meningkatkan produksi minyak.</small>
+
+    <button type="submit">Rekomendasikan</button>
+
+  </form>
+</div>
+
+</body>
+</html>
