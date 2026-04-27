@@ -1,0 +1,205 @@
+product_id,product_name,price,category,price_numeric,skin_type,concern,image
+1,Sabun Al-Mubarak,Rp25.000,Sabun,25000,Normal,Hydration,images/sabun.jpg
+2,Sabun Temulawak Sadayu Madu & Green Tea White Plus 90gr,Rp10.000,Sabun,10000,Dry,Sensitive Care,images/sabun.jpg
+3,Sabun Madu Wajah 701 Asli,Rp5.000,Sabun,5000,Oily,Hydration,images/sabun.jpg
+4,Sabun Colagen Acne (Hijau) 701 BPOM,Rp11.000,Sabun,11000,Combination,Hydration,images/sabun.jpg
+5,Sabun Citra Madu Whitening Soap,Rp7.000,Sabun,7000,Sensitive,Acne,images/sabun.jpg
+6,Sabun Natural Gold Original BPOM,Rp7.500,Sabun,7500,Sensitive,Brightening,images/sabun.jpg
+7,Sabun Walet Bengkuang,Rp8.500,Sabun,8500,Combination,Brightening,images/sabun.jpg
+8,Sabun Beras Susu Boliya BPOM 60gr,Rp8.000,Sabun,8000,Sensitive,Sensitive Care,images/sabun.jpg
+9,Sabun Madu Boliya Original BPOM,Rp5.500,Sabun,5500,Normal,Anti-Aging,images/sabun.jpg
+10,Sabun Vit E Whitening Transparant Soap,Rp6.750,Sabun,6750,Sensitive,Acne,images/sabun.jpg
+11,Sabun Gosly Bengkoang Whitening Asli,Rp13.000,Sabun,13000,Dry,Anti-Aging,images/sabun.jpg
+12,Sabun Pembersih Wajah Oval Asli,Rp5.250,Sabun,5250,Dry,Hydration,images/sabun.jpg
+13,Colagen Sabun Plus Vit E 701,Rp10.000,Sabun,10000,Sensitive,Anti-Aging,images/sabun.jpg
+14,Kojie-San Whitening Soap,Rp16.500,Sabun,16500,Dry,Brightening,images/sabun.jpg
+15,AL Mubarak Cream Day & Night,Rp44.500,Cream,44500,Dry,General Care,images/default.jpg
+16,Luzzini Cream Siang - Malam Asli,Rp43.500,Cream,43500,Dry,General Care,images/default.jpg
+17,Cream Gosly Asli Siang dan Malam,Rp37.500,Cream,37500,Dry,General Care,images/default.jpg
+18,Temulawak Gold 2in1 Day & Night Original Malaysia,Rp21.000,Cream,21000,Dry,General Care,images/default.jpg
+19,Cream Arab Turmetic 2in1 Day & Night Asli,Rp11.900,Cream,11900,Dry,General Care,images/default.jpg
+20,Cream Seledri Whitening Day & Night,Rp20.000,Cream,20000,Dry,General Care,images/default.jpg
+21,Cream Rantang Fair & Lovely Day & Night,Rp12.000,Cream,12000,Dry,General Care,images/default.jpg
+22,Cream Whitening Vit (per pcs),Rp9.000,Cream,9000,Dry,General Care,images/default.jpg
+23,Cream Cordycep Day Night Herbal Ginseng Asli,Rp45.000 - Rp90.000,Cream,4500090000,Dry,General Care,images/default.jpg
+24,Walet Jaring Pink Original / Cream Walet 3in1 Asli,Rp8.000 - Rp38.000,Cream,800038000,Dry,General Care,images/default.jpg
+25,Cream Fair & Lovely Susun Siang dan Malam,Rp10.000,Cream,10000,Dry,General Care,images/default.jpg
+26,CREAM MALAM WALET BENGKUANG,Rp39.000,Cream,39000,Dry,General Care,images/default.jpg
+27,Jelly Cream Rantang Royal Jelly Day & Night,Rp25.000,Cream,25000,Dry,General Care,images/default.jpg
+28,Best Now Cream Siang / Malam 15g,Rp88.000 - Rp176.000,Cream,88000176000,Dry,General Care,images/default.jpg
+29,GOSLY Day & Night 15gr,Rp90.000 - Rp180.000,Cream,90000180000,Dry,General Care,images/default.jpg
+30,Cream Berrijoy 15g Day & Night,Rp77.000 - Rp154.000,Cream,77000154000,Dry,General Care,images/default.jpg
+31,Cream Natashya Malam - Siang Asli,Rp43.500,Cream,43500,Dry,General Care,images/default.jpg
+32,Serum Gold Original BPOM,Rp17.500,Serum,17500,Dry,Hydration,images/serum.jpg
+33,Serum 24K Essence Bisis Ori,Rp33.000,Serum,33000,Dry,Hydration,images/serum.jpg
+34,Sadayu Serum Collagen BPOM,Rp21.500,Serum,21500,Dry,Hydration,images/serum.jpg
+35,Serum Graceful Original,Rp42.000,Serum,42000,Dry,Hydration,images/serum.jpg
+36,Serum Temulawak Sadayu,Rp20.000,Serum,20000,Dry,Hydration,images/serum.jpg
+37,Serum Temulawak Boliya BPOM,Rp20.000,Serum,20000,Dry,Hydration,images/serum.jpg
+38,NEW Serum Gosly 15ml,Rp37.000,Serum,37000,Dry,Hydration,images/serum.jpg
+39,Serum Berrijoy Whitening,Rp90.000,Serum,90000,Dry,Hydration,images/serum.jpg
+40,XI XIU Face Serum Series 20ml,Rp15.000,Serum,15000,Dry,Hydration,images/serum.jpg
+41,AL-Mubarak Skyline Toner Vit E Asli,Rp23.500,Toner,23500,Combination,Pore Care,images/toner.jpg
+42,Toner Gold Original BPOM,Rp17.500,Toner,17500,Combination,Pore Care,images/toner.jpg
+43,GOSLY Toner,Rp49.000,Toner,49000,Combination,Pore Care,images/toner.jpg
+44,Berrijoy Toner Wajah Whitening,Rp25.000,Toner,25000,Combination,Pore Care,images/toner.jpg
+45,VIVA Air Mawar 100ml Brightening Rose Water,Rp7.500,Toner,7500,Combination,Pore Care,images/toner.jpg
+46,Graceful Facial Wajah Asli Original,Rp32.500,Facial Cleanser,32500,Normal,General Care,images/default.jpg
+47,Sunscreen SPF 30 Madame Gie 60ml,Rp29.000,Sunscreen,29000,Sensitive,UV Protection,images/sunscreen.jpg
+48,Wardah UV Shield Essentia Sunscreen Gel SPF 30,Rp40.000,Sunscreen,40000,Sensitive,UV Protection,images/sunscreen.jpg
+49,Wallet Bengkoang Asli Ori 100%,Rp89.000,Cream,89000,Dry,General Care,images/default.jpg
+50,Kelly Pear Cream 5g,Rp10.000,Cream,10000,Dry,General Care,images/default.jpg
+51,Somethinc Niacinamide + Moisture Beet Serum 20ml,Rp89.000,Serum,89000,Dry,Hydration,images/serum.jpg
+52,Somethinc Hyalu-Beet Water Serum 20ml,Rp89.000,Serum,89000,Dry,Hydration,images/serum.jpg
+53,Somethinc AHA BHA PHA Serum,Rp149.000,Serum,149000,Dry,Hydration,images/serum.jpg
+54,Skintific 5X Ceramide Barrier Serum,Rp119.000,Serum,119000,Dry,Hydration,images/serum.jpg
+55,Skintific Mugwort Pore Clarifying Serum,Rp109.000,Serum,109000,Dry,Hydration,images/serum.jpg
+56,Skintific Niacinamide 10% Brightening Serum,Rp99.000,Serum,99000,Dry,Hydration,images/serum.jpg
+57,Wardah Lightening Serum,Rp65.000,Serum,65000,Dry,Hydration,images/serum.jpg
+58,Wardah Acnederm Serum,Rp79.000,Serum,79000,Dry,Hydration,images/serum.jpg
+59,Implora Niacinamide Serum 20ml,Rp25.000,Serum,25000,Dry,Hydration,images/serum.jpg
+60,Implora Vitamin C Serum 20ml,Rp25.000,Serum,25000,Dry,Hydration,images/serum.jpg
+61,Ms Glow Serum Brightening,Rp150.000,Serum,150000,Dry,Hydration,images/serum.jpg
+62,Ms Glow Acne Serum,Rp150.000,Serum,150000,Dry,Hydration,images/serum.jpg
+63,Hanasui Niacinamide Serum,Rp29.000,Serum,29000,Dry,Hydration,images/serum.jpg
+64,Hanasui Collagen Serum,Rp29.000,Serum,29000,Dry,Hydration,images/serum.jpg
+65,Avoskin Your Skin Bae Retinol Serum,Rp189.000,Serum,189000,Dry,Hydration,images/serum.jpg
+66,Avoskin Miraculous Retinol Ampoule,Rp229.000,Serum,229000,Dry,Hydration,images/serum.jpg
+67,Azarine Hyalumax Serum,Rp69.000,Serum,69000,Dry,Hydration,images/serum.jpg
+68,Azarine Centella Serum,Rp59.000,Serum,59000,Dry,Hydration,images/serum.jpg
+69,Glad2Glow Niacinamide 10% Serum,Rp55.000,Serum,55000,Dry,Hydration,images/serum.jpg
+70,Glad2Glow Retinol 0.3% Serum,Rp75.000,Serum,75000,Dry,Hydration,images/serum.jpg
+71,Npure Centella Asiatica Serum,Rp99.000,Serum,99000,Dry,Hydration,images/serum.jpg
+72,Npure Niacinamide 10% Serum,Rp89.000,Serum,89000,Dry,Hydration,images/serum.jpg
+73,The Originote Hyalucera Serum,Rp49.000,Serum,49000,Dry,Hydration,images/serum.jpg
+74,The Originote EGF Serum,Rp59.000,Serum,59000,Dry,Hydration,images/serum.jpg
+75,Dear Me Beauty Retinol Bakuchiol Serum,Rp129.000,Serum,129000,Dry,Hydration,images/serum.jpg
+76,Emina Bright Stuff Serum,Rp39.000,Serum,39000,Dry,Hydration,images/serum.jpg
+77,Garnier Bright Complete Vitamin C Booster Serum,Rp85.000,Serum,85000,Dry,Hydration,images/serum.jpg
+78,Garnier Serum Sheet Mask Vitamin C,Rp15.000,Serum,15000,Dry,Hydration,images/serum.jpg
+79,L'Oreal Paris Revitalift 1.5% Pure Hyaluronic Acid Serum,Rp149.000,Serum,149000,Dry,Hydration,images/serum.jpg
+80,Kahf Energizing Face Serum,Rp69.000,Serum,69000,Dry,Hydration,images/serum.jpg
+81,Olay Regenerist Micro-Sculpting Serum,Rp259.000,Serum,259000,Dry,Hydration,images/serum.jpg
+82,Skin1004 Madagascar Centella Asiatica 100 Ampoule,Rp159.000,Serum,159000,Dry,Hydration,images/serum.jpg
+83,Some By Mi AHA BHA PHA 30 Days Miracle Serum,Rp189.000,Serum,189000,Dry,Hydration,images/serum.jpg
+84,Cosrx Advanced Snail 96 Mucin Power Essence,Rp259.000,Serum,259000,Dry,Hydration,images/serum.jpg
+85,Paket Niacinamide + Moisturizer Skintific,Rp199.000,Serum,199000,Dry,Hydration,images/serum.jpg
+86,Skintific Multi Peptide Skin Barrier Moisturizer,Rp149.000,Moisturizer,149000,Dry,General Care,images/default.jpg
+87,Skintific 5X Ceramide Moisturizer,Rp129.000,Moisturizer,129000,Dry,General Care,images/default.jpg
+88,Somethinc Level 1% Retinol Moisturizer,Rp159.000,Moisturizer,159000,Dry,General Care,images/default.jpg
+89,Wardah Lightening Day Cream SPF 30,Rp55.000,Moisturizer,55000,Dry,General Care,images/default.jpg
+90,Wardah Perfect Bright Moisturizer,Rp75.000,Moisturizer,75000,Dry,General Care,images/default.jpg
+91,Ms Glow Luminous Cream Day & Night,Rp175.000,Moisturizer,175000,Dry,General Care,images/default.jpg
+92,Hanasui Moisturizer Gel Brightening,Rp35.000,Moisturizer,35000,Dry,General Care,images/default.jpg
+93,Implora Moisturizer Gel,Rp25.000,Moisturizer,25000,Dry,General Care,images/default.jpg
+94,Emina Bright Stuff Moisturizing Lotion,Rp39.000,Moisturizer,39000,Dry,General Care,images/default.jpg
+95,Azarine Hydrasoothe Gel Cream,Rp69.000,Moisturizer,69000,Dry,General Care,images/default.jpg
+96,Glad2Glow Ceramide Moisturizer,Rp65.000,Moisturizer,65000,Dry,General Care,images/default.jpg
+97,Npure Centella Toning Moisturizer,Rp89.000,Moisturizer,89000,Dry,General Care,images/default.jpg
+98,The Originote Ceramide Moisturizer,Rp55.000,Moisturizer,55000,Dry,General Care,images/default.jpg
+99,Dear Me Beauty Ceramide Moisture Barrier Cream,Rp119.000,Moisturizer,119000,Dry,General Care,images/default.jpg
+100,Avoskin Perfect Hydrating Treatment Essence,Rp149.000,Moisturizer,149000,Dry,General Care,images/default.jpg
+101,Garnier Bright Complete Day Cream SPF 19,Rp79.000,Moisturizer,79000,Dry,General Care,images/default.jpg
+102,Ponds Age Miracle Day Cream,Rp89.000,Moisturizer,89000,Dry,General Care,images/default.jpg
+103,Ponds Bright Beauty Day Cream,Rp65.000,Moisturizer,65000,Dry,General Care,images/default.jpg
+104,Olay Total Effects 7-in-1 Moisturizer,Rp155.000,Moisturizer,155000,Dry,General Care,images/default.jpg
+105,Vaseline Healthy White SPF 24 Body Lotion,Rp45.000,Moisturizer,45000,Dry,General Care,images/default.jpg
+106,Cetaphil Moisturizing Cream 250gr,Rp189.000,Moisturizer,189000,Dry,General Care,images/default.jpg
+107,Hada Labo Gokujyun Ultimate Moisturizing Light Lotion,Rp159.000,Moisturizer,159000,Dry,General Care,images/default.jpg
+108,Cosrx Oil-Free Ultra-Moisturizing Lotion,Rp229.000,Moisturizer,229000,Dry,General Care,images/default.jpg
+109,Some By Mi Snail Truecica Miracle Repair Cream,Rp199.000,Moisturizer,199000,Dry,General Care,images/default.jpg
+110,Skin1004 Hyalu-Cica Water-Fit Sun Serum,Rp159.000,Moisturizer,159000,Dry,General Care,images/default.jpg
+111,Somethinc Balancing Toner,Rp99.000,Toner,99000,Combination,Pore Care,images/toner.jpg
+112,Skintific Mugwort Pore Clarifying Toner,Rp109.000,Toner,109000,Combination,Pore Care,images/toner.jpg
+113,Wardah Lightening Toner,Rp55.000,Toner,55000,Combination,Pore Care,images/toner.jpg
+114,Hanasui Toner Wajah,Rp29.000,Toner,29000,Combination,Pore Care,images/toner.jpg
+115,Implora Brightening Toner,Rp25.000,Toner,25000,Combination,Pore Care,images/toner.jpg
+116,Emina Bright Stuff Facial Toner,Rp35.000,Toner,35000,Combination,Pore Care,images/toner.jpg
+117,Azarine Soothing Toner Essence,Rp55.000,Toner,55000,Combination,Pore Care,images/toner.jpg
+118,Glad2Glow 2% BHA Toner,Rp65.000,Toner,65000,Combination,Pore Care,images/toner.jpg
+119,The Originote AHA BHA Toner,Rp45.000,Toner,45000,Combination,Pore Care,images/toner.jpg
+120,Npure Centella Asiatica Toner,Rp89.000,Toner,89000,Combination,Pore Care,images/toner.jpg
+121,Dear Me Beauty BHA Toner,Rp109.000,Toner,109000,Combination,Pore Care,images/toner.jpg
+122,Avoskin Pomegranate Toner,Rp129.000,Toner,129000,Combination,Pore Care,images/toner.jpg
+123,Garnier Micellar Water Pink,Rp55.000,Toner,55000,Combination,Pore Care,images/toner.jpg
+124,Garnier Micellar Water Blue Oily Skin,Rp55.000,Toner,55000,Combination,Pore Care,images/toner.jpg
+125,Hada Labo Tamagohada Mild Peeling Lotion,Rp149.000,Toner,149000,Combination,Pore Care,images/toner.jpg
+126,Cosrx AHA/BHA Clarifying Treatment Toner,Rp199.000,Toner,199000,Combination,Pore Care,images/toner.jpg
+127,Some By Mi AHA BHA PHA 30 Days Miracle Toner,Rp179.000,Toner,179000,Combination,Pore Care,images/toner.jpg
+128,Skin1004 Centella Hyalu-Cica Toning Toner,Rp139.000,Toner,139000,Combination,Pore Care,images/toner.jpg
+129,Kahf Refreshing Toner for Men,Rp59.000,Toner,59000,Combination,Pore Care,images/toner.jpg
+130,Somethinc Cleanser Low pH Gel,Rp99.000,Facial Wash,99000,Oily,General Care,images/default.jpg
+131,Skintific Mugwort Pore Clarifying Facial Wash,Rp109.000,Facial Wash,109000,Oily,General Care,images/default.jpg
+132,Wardah Acnederm Facial Wash,Rp65.000,Facial Wash,65000,Oily,General Care,images/default.jpg
+133,Wardah Brightening Facial Wash,Rp55.000,Facial Wash,55000,Oily,General Care,images/default.jpg
+134,Ms Glow Facial Wash,Rp95.000,Facial Wash,95000,Oily,General Care,images/default.jpg
+135,Hanasui Facial Wash Brightening,Rp25.000,Facial Wash,25000,Oily,General Care,images/default.jpg
+136,Implora Facial Wash,Rp20.000,Facial Wash,20000,Oily,General Care,images/default.jpg
+137,Emina Bright Stuff Face Wash,Rp39.000,Facial Wash,39000,Oily,General Care,images/default.jpg
+138,Azarine Acne Fighter Facial Wash,Rp55.000,Facial Wash,55000,Oily,General Care,images/default.jpg
+139,Glad2Glow Brightening Facial Wash,Rp49.000,Facial Wash,49000,Oily,General Care,images/default.jpg
+140,The Originote Brightening Facial Wash,Rp39.000,Facial Wash,39000,Oily,General Care,images/default.jpg
+141,Garnier Bright Complete Foam,Rp45.000,Facial Wash,45000,Oily,General Care,images/default.jpg
+142,Ponds Bright Beauty Facial Foam,Rp39.000,Facial Wash,39000,Oily,General Care,images/default.jpg
+143,Cetaphil Gentle Skin Cleanser 125ml,Rp99.000,Facial Wash,99000,Oily,General Care,images/default.jpg
+144,Cosrx Low pH Good Morning Gel Cleanser,Rp189.000,Facial Wash,189000,Oily,General Care,images/default.jpg
+145,Some By Mi AHA BHA PHA 30 Days Miracle Cleansing Bar,Rp149.000,Facial Wash,149000,Oily,General Care,images/default.jpg
+146,Hada Labo Perfect Gel Face Wash,Rp129.000,Facial Wash,129000,Oily,General Care,images/default.jpg
+147,Kahf Energizing Face Wash,Rp59.000,Facial Wash,59000,Oily,General Care,images/default.jpg
+148,Npure Centella Asiatica Facial Wash,Rp79.000,Facial Wash,79000,Oily,General Care,images/default.jpg
+149,Skintific Aqua Light Sunscreen SPF 50+ PA++++,Rp139.000,Sunscreen,139000,Sensitive,UV Protection,images/sunscreen.jpg
+150,Somethinc Mineral Glow Sunscreen SPF 50 PA++++,Rp149.000,Sunscreen,149000,Sensitive,UV Protection,images/sunscreen.jpg
+151,Wardah UV Shield Essential Sunscreen SPF 30,Rp79.000,Sunscreen,79000,Sensitive,UV Protection,images/sunscreen.jpg
+152,Azarine Hydrasoothe Sunscreen SPF 45 PA+++,Rp79.000,Sunscreen,79000,Sensitive,UV Protection,images/sunscreen.jpg
+153,Emina Sun Protection SPF 30,Rp49.000,Sunscreen,49000,Sensitive,UV Protection,images/sunscreen.jpg
+154,Glad2Glow SPF 50 PA++++ Sunscreen,Rp79.000,Sunscreen,79000,Sensitive,UV Protection,images/sunscreen.jpg
+155,The Originote Ceramide Sunscreen SPF 50,Rp59.000,Sunscreen,59000,Sensitive,UV Protection,images/sunscreen.jpg
+156,Avoskin Photosynthesis Brightening Serum SPF 50,Rp199.000,Sunscreen,199000,Sensitive,UV Protection,images/sunscreen.jpg
+157,Npure Cica Sunscreen SPF 50,Rp99.000,Sunscreen,99000,Sensitive,UV Protection,images/sunscreen.jpg
+158,Garnier UV INVISIBLE Super UV Serum SPF 50+,Rp99.000,Sunscreen,99000,Sensitive,UV Protection,images/sunscreen.jpg
+159,Skin1004 Hyalu-Cica Water-Fit Sun Serum SPF 50+,Rp179.000,Sunscreen,179000,Sensitive,UV Protection,images/sunscreen.jpg
+160,Cosrx Aloe Soothing Sun Cream SPF 50,Rp249.000,Sunscreen,249000,Sensitive,UV Protection,images/sunscreen.jpg
+161,Bioré UV Aqua Rich Watery Essence SPF 50+,Rp149.000,Sunscreen,149000,Sensitive,UV Protection,images/sunscreen.jpg
+162,Kahf Everyday Face Shield Sunscreen SPF 35,Rp79.000,Sunscreen,79000,Sensitive,UV Protection,images/sunscreen.jpg
+163,Skintific Mugwort Clay Mask,Rp109.000,Face Mask,109000,Normal,General Care,images/default.jpg
+164,Somethinc Mugwort Pore Clarifying Mask,Rp129.000,Face Mask,129000,Normal,General Care,images/default.jpg
+165,Wardah Lightening Creamy Foam Mask,Rp65.000,Face Mask,65000,Normal,General Care,images/default.jpg
+166,Emina Bright Stuff Masker,Rp35.000,Face Mask,35000,Normal,General Care,images/default.jpg
+167,Hanasui Mask Sheet,Rp10.000,Face Mask,10000,Normal,General Care,images/default.jpg
+168,Implora Gold Sheet Mask,Rp9.000,Face Mask,9000,Normal,General Care,images/default.jpg
+169,Ms Glow Sheet Mask Brightening,Rp35.000,Face Mask,35000,Normal,General Care,images/default.jpg
+170,Garnier Sakura White Sheet Mask,Rp12.000,Face Mask,12000,Normal,General Care,images/default.jpg
+171,Garnier Light Complete Sheet Mask,Rp12.000,Face Mask,12000,Normal,General Care,images/default.jpg
+172,The Originote Niacinamide Sheet Mask,Rp15.000,Face Mask,15000,Normal,General Care,images/default.jpg
+173,Azarine Sheet Mask Centella,Rp15.000,Face Mask,15000,Normal,General Care,images/default.jpg
+174,Glad2Glow Niacinamide Sheet Mask,Rp15.000,Face Mask,15000,Normal,General Care,images/default.jpg
+175,Npure Centella Sheet Mask,Rp25.000,Face Mask,25000,Normal,General Care,images/default.jpg
+176,Some By Mi Miracle Tone Erasing Glow Mask,Rp25.000,Face Mask,25000,Normal,General Care,images/default.jpg
+177,Cosrx Acne Pimple Master Patch,Rp89.000,Face Mask,89000,Normal,General Care,images/default.jpg
+178,Skin1004 Centella Ampoule Sheet Mask,Rp20.000,Face Mask,20000,Normal,General Care,images/default.jpg
+179,Dear Me Beauty Niacinamide Sheet Mask,Rp15.000,Face Mask,15000,Normal,General Care,images/default.jpg
+180,BIOAQUA Collagen Sheet Mask,Rp8.000,Face Mask,8000,Normal,General Care,images/default.jpg
+181,Somethinc AHA BHA 10% Pore Clarifying Serum,Rp149.000,Exfoliator,149000,Normal,General Care,images/default.jpg
+182,Skintific Exfoliating Toner,Rp109.000,Exfoliator,109000,Normal,General Care,images/default.jpg
+183,Emina Bright Stuff Brightening Scrub,Rp39.000,Exfoliator,39000,Normal,General Care,images/default.jpg
+184,Wardah Crystal Secret Brightening Scrub,Rp65.000,Exfoliator,65000,Normal,General Care,images/default.jpg
+185,Garnier Bright Complete Scrub,Rp49.000,Exfoliator,49000,Normal,General Care,images/default.jpg
+186,Some By Mi AHA BHA PHA Toner 30 Days,Rp179.000,Exfoliator,179000,Normal,General Care,images/default.jpg
+187,Npure Centella Asiatica Peeling Serum,Rp99.000,Exfoliator,99000,Normal,General Care,images/default.jpg
+188,Skintific 5X Ceramide Skin Barrier Treatment Essence,Rp149.000,Essence,149000,Normal,General Care,images/default.jpg
+189,Hada Labo Shirojyun Ultimate Whitening Lotion,Rp179.000,Essence,179000,Normal,General Care,images/default.jpg
+190,Somethinc SABI Bright Essence,Rp139.000,Essence,139000,Normal,General Care,images/default.jpg
+191,Dear Me Beauty Brightening Essence,Rp109.000,Essence,109000,Normal,General Care,images/default.jpg
+192,Avoskin Miraculous Refining Treatment Essence,Rp189.000,Essence,189000,Normal,General Care,images/default.jpg
+193,The Originote Hyalucera Essence,Rp55.000,Essence,55000,Normal,General Care,images/default.jpg
+194,Npure Propolis Synergy Treatment,Rp129.000,Essence,129000,Normal,General Care,images/default.jpg
+195,Ms Glow Brightening Treatment Essence,Rp145.000,Essence,145000,Normal,General Care,images/default.jpg
+196,Benzolac 5% Acne Gel,Rp45.000,Acne Treatment,45000,Normal,General Care,images/default.jpg
+197,Dalacin T Topical Solution,Rp89.000,Acne Treatment,89000,Normal,General Care,images/default.jpg
+198,Somethinc Holystar Blemish Touch,Rp99.000,Acne Treatment,99000,Normal,General Care,images/default.jpg
+199,Skintific Acne Spot Gel,Rp89.000,Acne Treatment,89000,Normal,General Care,images/default.jpg
+200,Azarine Acne Spot Gel,Rp49.000,Acne Treatment,49000,Normal,General Care,images/default.jpg
+201,Emina Acne Solution Spot Gel,Rp35.000,Acne Treatment,35000,Normal,General Care,images/default.jpg
+202,Wardah Acnederm Acne Spot Gel,Rp55.000,Acne Treatment,55000,Normal,General Care,images/default.jpg
+203,Cosrx Acne Pimple Master Patch 24 patches,Rp79.000,Acne Treatment,79000,Normal,General Care,images/default.jpg
+204,Some By Mi Snail Truecica Miracle Repair Serum,Rp199.000,Acne Treatment,199000,Normal,General Care,images/default.jpg

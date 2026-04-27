@@ -1,52 +1,169 @@
+<!-- templates/index.html -->
+
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Skincare Recommendation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowMatch</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI';
+    * {
       margin: 0;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-      color: #333;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .container {
-      margin-top: 150px;
+    body {
+      background: linear-gradient(135deg, #fdf6f9, #f4f8ff);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #2d2d2d;
     }
 
-    h1 {
-      font-size: 42px;
+    .navbar {
+      width: 100%;
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      z-index: 10;
     }
 
-    p {
-      font-size: 18px;
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #b76e79;
+      letter-spacing: 1px;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: white;
-      color: #555;
-      border-radius: 25px;
+    .nav-btn {
+      padding: 10px 22px;
+      border: 1px solid #d9b6be;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      color: #b76e79;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: bold;
       transition: 0.3s;
     }
 
-    a:hover {
-      background: #ffe4f1;
+    .nav-btn:hover {
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(183,110,121,0.15);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8%;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 58px;
+      font-weight: 700;
+      color: #2b2b2b;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-content h1 span {
+      color: #c97b8d;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 35px;
+      line-height: 1.8;
+    }
+
+    .start-btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+      color: #444;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 12px 30px rgba(201,123,141,0.18);
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(201,123,141,0.25);
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+
+    .circle1 {
+      width: 280px;
+      height: 280px;
+      top: 100px;
+      left: 80px;
+    }
+
+    .circle2 {
+      width: 180px;
+      height: 180px;
+      bottom: 150px;
+      right: 120px;
+    }
+
+    .circle3 {
+      width: 120px;
+      height: 120px;
+      top: 220px;
+      right: 250px;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Skincare Recommendation</h1>
-  <p>Temukan produk terbaik sesuai kondisi kulitmu</p>
-  <a href="/form">Mulai Sekarang</a>
-</div>
+  <div class="navbar">
+    <div class="logo">GlowMatch</div>
+    <a href="/login" class="nav-btn">Login</a>
+  </div>
+
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your Perfect <span>Skincare Match</span></h1>
+
+      <p>
+        Temukan rekomendasi skincare terbaik sesuai dengan jenis kulit,
+        kondisi wajah, dan kebutuhan personalmu dengan sistem rekomendasi pintar.
+      </p>
+
+      <a href="/get-started" class="start-btn">Get Started</a>
+    </div>
+  </section>
 
 </body>
 </html>

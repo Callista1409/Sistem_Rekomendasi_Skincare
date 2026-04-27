@@ -1,178 +1,320 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
+import os
 import pandas as pd
-import random
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
+app.secret_key = "skincare_secret_key"
 
-# ======================
-# LOAD DATA
-# ======================
-skin_df = pd.read_csv("Skin_Type_OG.csv")
-products = pd.read_csv("skincare_products_300.csv")
-interactions = pd.read_csv("interactions_300.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+users_file = os.path.join(BASE_DIR, "users.csv")
 
-print(skin_df["Skin_Type"].value_counts())
+if not os.path.exists(users_file):
+    pd.DataFrame(columns=["username", "email", "password"]).to_csv(users_file, index=False)
 
-# ======================
-# PREPROCESSING
-# ======================
+skin_df_raw = pd.read_csv(os.path.join(BASE_DIR, "Skin_Type_OG.csv"))
+products = pd.read_csv(os.path.join(BASE_DIR, "Produk_Skincare_Cleaned.csv"))
+interactions = pd.read_csv(os.path.join(BASE_DIR, "interactions_300.csv"))
+users_300 = pd.read_csv(os.path.join(BASE_DIR, "users_300.csv"))
 
-# encode target
+skin_df_raw["Skin_Type"] = skin_df_raw["Skin_Type"].astype(str).str.strip()
+products["skin_type"] = products["skin_type"].astype(str).str.strip()
+products["category"] = products["category"].astype(str).str.strip()
+products["concern"] = products["concern"].astype(str).str.strip()
+users_300["skin_type"] = users_300["skin_type"].astype(str).str.strip()
+users_300["concern"] = users_300["concern"].astype(str).str.strip()
+
+skin_df = skin_df_raw.copy()
+
 le_skin = LabelEncoder()
 skin_df["Skin_Type"] = le_skin.fit_transform(skin_df["Skin_Type"])
-
-# encode fitur
 le_gender = LabelEncoder()
 skin_df["Gender"] = le_gender.fit_transform(skin_df["Gender"])
-
 le_hydration = LabelEncoder()
 skin_df["Hydration_Level"] = le_hydration.fit_transform(skin_df["Hydration_Level"])
-
 le_oil = LabelEncoder()
 skin_df["Oil_Level"] = le_oil.fit_transform(skin_df["Oil_Level"])
-
 le_sens = LabelEncoder()
 skin_df["Sensitivity"] = le_sens.fit_transform(skin_df["Sensitivity"])
 
-# fitur & target
-X = skin_df[[
-    "Age","Gender","Hydration_Level","Oil_Level",
-    "Sensitivity","Humidity","Temperature"
-]]
+X = skin_df[["Age", "Gender", "Hydration_Level", "Oil_Level", "Sensitivity", "Humidity", "Temperature"]]
 y = skin_df["Skin_Type"]
 
-# training
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-model_skin = RandomForestClassifier(
-    n_estimators=200,
-    class_weight='balanced',
-    random_state=42
-)
+model_skin = RandomForestClassifier(n_estimators=200, class_weight="balanced", random_state=42)
 model_skin.fit(X_train, y_train)
 
-# ======================
-# COLLABORATIVE FILTERING
-# ======================
-user_item = interactions.pivot_table(
-    index='user_id',
-    columns='product_id',
-    values='rating'
-).fillna(0)
+interaction_with_user_profile = interactions.merge(users_300, on="user_id", how="left")
 
-# ======================
+# =====================================================
 # ROUTES
-# ======================
-@app.route('/')
+# =====================================================
+
+@app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route('/form')
+
+@app.route("/get-started")
+def get_started():
+    if "user" in session:
+        return redirect("/form")
+    return redirect("/register")
+
+
+# =====================================================
+# REGISTER
+# =====================================================
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        username = request.form.get("username", "").strip()
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "").strip()
+
+        users_df = pd.read_csv(users_file)
+        users_df["email"] = users_df["email"].astype(str).str.strip().str.lower()
+        users_df["password"] = users_df["password"].astype(str).str.strip()
+        if email in users_df["email"].values:
+            return render_template("register.html", error="Email sudah terdaftar.")
+
+        new_user = pd.DataFrame([{
+            "username": username,
+            "email": email,
+            "password": password
+        }])
+
+        users_df = pd.concat(
+            [users_df, new_user],
+            ignore_index=True
+        )
+
+        users_df.to_csv(users_file, index=False)
+
+        return redirect("/login")
+    return render_template("register.html")
+
+
+# =====================================================
+# LOGIN
+# =====================================================
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "").strip()
+
+        users_df = pd.read_csv(users_file)
+
+        users_df["email"] = users_df["email"].astype(str).str.strip().str.lower()
+        users_df["password"] = users_df["password"].astype(str).str.strip()
+
+        user = users_df[(users_df["email"] == email) & (users_df["password"] == password)]
+
+        if not user.empty:
+            session["user"] = email
+            return redirect("/form")
+        return render_template("login.html", error="Login gagal, email atau password salah.")
+    return render_template("login.html")
+
+
+# =====================================================
+# LOGOUT
+# =====================================================
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect("/")
+
+
+# =====================================================
+# FORM (PROTECTED PAGE)
+# =====================================================
+
+@app.route("/form")
 def form():
+    if "user" not in session:
+        return redirect("/register")
     return render_template("form.html")
 
-@app.route('/predict', methods=['POST'])
-def predict():
 
-    # ======================
-    # INPUT
-    # ======================
-    age = int(request.form['age'])
-    gender = request.form['gender']
-    hydration = request.form['hydration']
-    oil = request.form['oil']
-    sensitivity = request.form['sensitivity']
-    humidity = float(request.form['humidity'])
-    temperature = float(request.form['temperature'])
+# =====================================================
+# PROFILE ACCOUNT
+# =====================================================
 
-    # ======================
-    # ENCODE
-    # ======================
-    gender = le_gender.transform([gender])[0]
-    hydration = le_hydration.transform([hydration])[0]
-    oil = le_oil.transform([oil])[0]
-    sensitivity = le_sens.transform([sensitivity])[0]
+@app.route("/profile")
+def profile():
+    if "user" not in session:
+        return redirect("/login")
 
-    # ======================
-    # PREDIKSI ML
-    # ======================
-    input_data = [[age, gender, hydration, oil, sensitivity, humidity, temperature]]
-    pred = model_skin.predict(input_data)[0]
-    skin_type = le_skin.inverse_transform([pred])[0]
+    users_df = pd.read_csv(users_file)
 
-    # ======================
-    # RULE-BASED FIX (WAJIB)
-    # ======================
-    if hydration == 0 and oil == 0:
-        skin_type = "Dry"
-
-    elif hydration == 2 and oil == 0:
-        skin_type = "Dry"
-
-    elif oil == 2:
-        skin_type = "Oily"
-
-    elif hydration == 1 and oil == 1:
-        skin_type = "Combination"
-
-    # ======================
-    # FILTER PRODUK
-    # ======================
-    filtered_products = products[
-        products['skin_type'] == skin_type
-    ].copy()
-
-    if filtered_products.empty:
-        filtered_products = products.copy()
-
-    # ======================
-    # CONTENT SCORE
-    # ======================
-    filtered_products['content_score'] = 1
-
-    # ======================
-    # COLLABORATIVE
-    # ======================
-    user_id = random.randint(1, 300)
-
-    if user_id in user_item.index:
-        user_vector = user_item.loc[user_id].values.reshape(1, -1)
-        sim_scores = cosine_similarity(user_vector, user_item)[0]
-
-        similar_users = sim_scores.argsort()[-5:]
-        cf_scores = user_item.iloc[similar_users].mean(axis=0)
-
-        filtered_products['cf_score'] = filtered_products['product_id'].map(cf_scores).fillna(0)
-    else:
-        filtered_products['cf_score'] = 0
-
-    # ======================
-    # HYBRID
-    # ======================
-    filtered_products['final_score'] = (
-        0.7 * filtered_products['content_score'] +
-        0.3 * filtered_products['cf_score']
+    users_df["email"] = (
+        users_df["email"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
     )
 
-    result = filtered_products.sort_values(
-        'final_score', ascending=False
-    ).head(5)
+    current_email = (
+        session["user"]
+        .strip()
+        .lower()
+    )
 
-    # ======================
-    # OUTPUT
-    # ======================
+    user_data = users_df[
+        users_df["email"] == current_email
+    ]
+
+    if user_data.empty:
+        return redirect("/logout")
+
+    username = user_data.iloc[0]["username"]
+    email = user_data.iloc[0]["email"]
+
+    return render_template(
+        "profile.html",
+        username=username,
+        email=email
+    )
+
+
+def _safe_encode(encoder, value):
+    classes = set(encoder.classes_)
+    return encoder.transform([value if value in classes else encoder.classes_[0]])[0]
+
+
+def _dominant_concern(age, skin_type):
+    pool = users_300[
+        (users_300["skin_type"].str.lower() == skin_type.lower())
+        & (users_300["age"].between(age - 5, age + 5))
+    ]
+    if pool.empty:
+        pool = users_300[users_300["skin_type"].str.lower() == skin_type.lower()]
+    if pool.empty:
+        return "General Care"
+    return pool["concern"].mode().iloc[0]
+
+
+def _score_products(age, skin_type, concern):
+    profile_pool = users_300.copy()
+    profile_pool["age_diff"] = (profile_pool["age"] - age).abs()
+    profile_pool["skin_match"] = profile_pool["skin_type"].str.lower() == skin_type.lower()
+
+    candidate_users = profile_pool.sort_values(
+        by=["skin_match", "age_diff"], ascending=[False, True]
+    ).head(40)["user_id"].tolist()
+
+    cf = (
+        interaction_with_user_profile[
+            interaction_with_user_profile["user_id"].isin(candidate_users)
+        ]
+        .groupby("product_id")["rating"]
+        .mean()
+        .rename("cf_score")
+    )
+
+    scored = products.copy()
+    scored["skin_score"] = (
+        scored["skin_type"].str.lower() == skin_type.lower()
+    ).astype(float)
+    scored["concern_score"] = (
+        scored["concern"].str.lower() == concern.lower()
+    ).astype(float)
+    scored["cf_score"] = scored["product_id"].map(cf).fillna(0.0)
+    max_cf = scored["cf_score"].max()
+    if max_cf > 0:
+        scored["cf_score"] = scored["cf_score"] / max_cf
+
+    scored["final_score"] = (
+        0.45 * scored["skin_score"] + 0.35 * scored["concern_score"] + 0.20 * scored["cf_score"]
+    )
+    return scored.sort_values(by="final_score", ascending=False)
+
+
+def _pick_one_per_routine(scored_products):
+    routine_slots = {
+        "Cleanser": {"facial wash", "facial cleanser", "sabun", "cleanser"},
+        "Toner": {"toner"},
+        "Serum": {"serum"},
+        "Moisturizer": {"moisturizer", "cream", "gel"},
+        "Sunscreen": {"sunscreen", "sunblock", "spf"},
+    }
+
+    selected = []
+    selected_ids = set()
+
+    for slot_name, aliases in routine_slots.items():
+        slot_candidates = scored_products[
+            scored_products["category"].str.lower().isin(aliases)
+        ]
+        if not slot_candidates.empty:
+            chosen = slot_candidates.iloc[0].copy()
+            chosen["routine_step"] = slot_name
+            selected.append(chosen)
+            selected_ids.add(chosen["product_id"])
+
+    if len(selected) < 5:
+        for _, row in scored_products.iterrows():
+            if row["product_id"] in selected_ids:
+                continue
+            extra = row.copy()
+            extra["routine_step"] = "Tambahan"
+            selected.append(extra)
+            selected_ids.add(row["product_id"])
+            if len(selected) == 5:
+                break
+
+    return pd.DataFrame(selected).head(5)
+
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    if "user" not in session:
+        return redirect("/register")
+
+    age = int(request.form["age"])
+    gender = request.form["gender"]
+    hydration = request.form["hydration"]
+    oil = request.form["oil"]
+    sensitivity = request.form["sensitivity"]
+    humidity = float(request.form["humidity"])
+    temperature = float(request.form["temperature"])
+
+    gender_encoded = _safe_encode(le_gender, gender)
+    hydration_encoded = _safe_encode(le_hydration, hydration)
+    oil_encoded = _safe_encode(le_oil, oil)
+    sensitivity_encoded = _safe_encode(le_sens, sensitivity)
+
+    input_data = [[
+        age,
+        gender_encoded,
+        hydration_encoded,
+        oil_encoded,
+        sensitivity_encoded,
+        humidity,
+        temperature
+    ]]
+
+    pred = model_skin.predict(input_data)[0]
+    skin_type = le_skin.inverse_transform([pred])[0]
+    concern = _dominant_concern(age, skin_type)
+
+    scored_products = _score_products(age, skin_type, concern)
+    result = _pick_one_per_routine(scored_products)
+
     return render_template(
         "result.html",
         skin_type=skin_type,
+        concern=concern,
         products=result.to_dict(orient="records")
     )
 
-# ======================
-# RUN
-# ======================
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
