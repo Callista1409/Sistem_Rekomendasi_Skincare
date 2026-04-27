@@ -31,6 +31,8 @@
       position: absolute;
       top: 30px;
       right: 40px;
+      display: flex;
+      gap: 10px;
     }
 
     .profile-btn {
@@ -49,6 +51,26 @@
 
     .profile-btn:hover {
       transform: scale(1.05);
+    }
+
+    .history-btn {
+      height: 52px;
+      padding: 0 16px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      color: #b76e79;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .history-btn:hover {
+      transform: translateY(-1px);
     }
 
     .card {
@@ -134,6 +156,7 @@
 <body>
 
   <div class="top-right">
+    <a href="/history" class="history-btn">History</a>
     <a href="/profile" class="profile-btn">👤</a>
   </div>
 

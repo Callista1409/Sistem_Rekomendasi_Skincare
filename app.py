@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import os
+import json
+from datetime import datetime
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
@@ -10,9 +12,27 @@ app.secret_key = "skincare_secret_key"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 users_file = os.path.join(BASE_DIR, "users.csv")
+history_file = os.path.join(BASE_DIR, "history.csv")
 
 if not os.path.exists(users_file):
     pd.DataFrame(columns=["username", "email", "password"]).to_csv(users_file, index=False)
+if not os.path.exists(history_file):
+    pd.DataFrame(
+        columns=[
+            "created_at",
+            "email",
+            "age",
+            "gender",
+            "hydration",
+            "oil",
+            "sensitivity",
+            "humidity",
+            "temperature",
+            "skin_type",
+            "concern",
+            "products_json",
+        ]
+    ).to_csv(history_file, index=False)
 
 skin_df_raw = pd.read_csv(os.path.join(BASE_DIR, "Skin_Type_OG.csv"))
 products = pd.read_csv(os.path.join(BASE_DIR, "Produk_Skincare_Cleaned.csv"))
@@ -185,6 +205,45 @@ def profile():
     )
 
 
+@app.route("/history")
+def history():
+    if "user" not in session:
+        return redirect("/login")
+
+    current_email = session["user"].strip().lower()
+    history_df = pd.read_csv(history_file)
+
+    if history_df.empty:
+        return render_template("history.html", histories=[])
+
+    history_df["email"] = history_df["email"].astype(str).str.strip().str.lower()
+    user_history = history_df[history_df["email"] == current_email].copy()
+    user_history = user_history.sort_values(by="created_at", ascending=False)
+
+    histories = []
+    for _, row in user_history.iterrows():
+        try:
+            product_rows = json.loads(row["products_json"])
+        except Exception:
+            product_rows = []
+
+        histories.append({
+            "created_at": row.get("created_at", "-"),
+            "age": row.get("age", "-"),
+            "gender": row.get("gender", "-"),
+            "hydration": row.get("hydration", "-"),
+            "oil": row.get("oil", "-"),
+            "sensitivity": row.get("sensitivity", "-"),
+            "humidity": row.get("humidity", "-"),
+            "temperature": row.get("temperature", "-"),
+            "skin_type": row.get("skin_type", "-"),
+            "concern": row.get("concern", "-"),
+            "products": product_rows,
+        })
+
+    return render_template("history.html", histories=histories)
+
+
 def _safe_encode(encoder, value):
     classes = set(encoder.classes_)
     return encoder.transform([value if value in classes else encoder.classes_[0]])[0]
@@ -308,12 +367,34 @@ def predict():
 
     scored_products = _score_products(age, skin_type, concern)
     result = _pick_one_per_routine(scored_products)
+    result_records = result.to_dict(orient="records")
+
+    history_df = pd.read_csv(history_file)
+    new_history = pd.DataFrame([{
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "email": session["user"].strip().lower(),
+        "age": age,
+        "gender": gender,
+        "hydration": hydration,
+        "oil": oil,
+        "sensitivity": sensitivity,
+        "humidity": humidity,
+        "temperature": temperature,
+        "skin_type": skin_type,
+        "concern": concern,
+        "products_json": json.dumps(result_records),
+    }])
+    history_df = pd.concat([history_df, new_history], ignore_index=True)
+    history_df.to_csv(history_file, index=False)
+
+    carousel_products = products.head(20).to_dict(orient="records")
 
     return render_template(
         "result.html",
         skin_type=skin_type,
         concern=concern,
-        products=result.to_dict(orient="records")
+        products=result_records,
+        carousel_products=carousel_products
     )
 
 if __name__ == "__main__":

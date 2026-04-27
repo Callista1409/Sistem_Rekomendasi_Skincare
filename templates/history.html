@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Rekomendasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #fdf6f9, #f4f8ff);
+      min-height: 100vh;
+      color: #2d2d2d;
+      padding: 34px 20px 48px;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; text-align: center; }
+    .subtitle { text-align: center; color: #777; margin-bottom: 26px; }
+    .actions {
+      display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .btn {
+      text-decoration: none; color: #b76e79; border: 1px solid #e2c3cb; background: #fff;
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
+    }
+    .entry {
+      background: rgba(255,255,255,0.92); border: 1px solid #f2dde2;
+      border-radius: 18px; padding: 18px; margin-bottom: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+    .date { font-weight: 600; color: #a06270; margin-bottom: 10px; }
+    .detail-grid {
+      display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      margin-bottom: 12px;
+    }
+    .detail-item { font-size: 13px; color: #555; background: #fff; border-radius: 10px; padding: 8px 10px; }
+    .products { display: flex; gap: 10px; flex-wrap: wrap; }
+    .product-chip {
+      border: 1px solid #f0d7de; background: #fff; padding: 8px 11px; border-radius: 10px;
+      font-size: 12px; color: #555;
+    }
+    .empty {
+      background: #fff; border-radius: 16px; padding: 22px; text-align: center; color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>History Rekomendasi</h1>
+    <div class="subtitle">Riwayat input dan hasil rekomendasi per akun</div>
+
+    <div class="actions">
+      <a class="btn" href="/form">← Kembali ke Form</a>
+      <a class="btn" href="/profile">Profil</a>
+    </div>
+
+    {% if histories %}
+      {% for h in histories %}
+      <div class="entry">
+        <div class="date">{{ h.created_at }}</div>
+        <div class="detail-grid">
+          <div class="detail-item"><b>Age:</b> {{ h.age }}</div>
+          <div class="detail-item"><b>Gender:</b> {{ h.gender }}</div>
+          <div class="detail-item"><b>Hydration:</b> {{ h.hydration }}</div>
+          <div class="detail-item"><b>Oil:</b> {{ h.oil }}</div>
+          <div class="detail-item"><b>Sensitivity:</b> {{ h.sensitivity }}</div>
+          <div class="detail-item"><b>Humidity:</b> {{ h.humidity }}</div>
+          <div class="detail-item"><b>Temperature:</b> {{ h.temperature }}</div>
+          <div class="detail-item"><b>Skin Type:</b> {{ h.skin_type }}</div>
+          <div class="detail-item"><b>Concern:</b> {{ h.concern }}</div>
+        </div>
+        <div class="products">
+          {% for p in h.products %}
+          <div class="product-chip">{{ p.routine_step }} - {{ p.product_name }}</div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty">Belum ada history rekomendasi untuk akun ini.</div>
+    {% endif %}
+  </div>
+</body>
+</html>
