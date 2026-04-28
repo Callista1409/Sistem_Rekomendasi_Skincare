@@ -53,6 +53,8 @@
       padding: 25px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.06);
       transition: 0.3s;
+      position: relative;
+      padding-bottom: 70px;
     }
 
     .card:hover {
@@ -88,6 +90,24 @@
       font-size: 22px;
       font-weight: 700;
       color: #b76e79;
+    }
+
+    .buy-btn {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+      color: #5b3a43;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: 0 8px 18px rgba(201,123,141,0.2);
     }
 
     .actions {
@@ -210,6 +230,14 @@
       <div class="price">
         {{ product.price }}
       </div>
+
+      <a
+        class="buy-btn"
+        href="{{ product.buy_link }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Beli produk"
+      >🛒</a>
 
     </div>
     {% endfor %}

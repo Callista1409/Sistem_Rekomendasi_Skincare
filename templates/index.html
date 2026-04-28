@@ -64,7 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 8%;
+      padding: 0 8% 170px;
       position: relative;
     }
 
@@ -139,6 +139,46 @@
       top: 220px;
       right: 250px;
     }
+
+    .hero-carousel-wrap {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      z-index: 3;
+      padding: 0 14px;
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      animation: hero-scroll 28s linear infinite;
+    }
+
+    .hero-slide {
+      width: 120px;
+      height: 120px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.11);
+      border: 4px solid rgba(255,255,255,0.85);
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes hero-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
   </style>
 </head>
 <body>
@@ -162,6 +202,17 @@
       </p>
 
       <a href="/get-started" class="start-btn">Get Started</a>
+    </div>
+
+    <div class="hero-carousel-wrap">
+      <div class="hero-carousel-track">
+        {% for image_url in hero_images %}
+        <div class="hero-slide"><img src="{{ image_url }}" alt="Skincare item"></div>
+        {% endfor %}
+        {% for image_url in hero_images %}
+        <div class="hero-slide"><img src="{{ image_url }}" alt="Skincare item"></div>
+        {% endfor %}
+      </div>
     </div>
   </section>
 

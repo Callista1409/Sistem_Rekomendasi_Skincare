@@ -29,7 +29,21 @@
       border-radius: 18px; padding: 18px; margin-bottom: 16px;
       box-shadow: 0 10px 24px rgba(0,0,0,0.05);
     }
+    .entry-head {
+      display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
     .date { font-weight: 600; color: #a06270; margin-bottom: 10px; }
+    .mini-btn {
+      border: 1px solid #efc3ce;
+      color: #b04a60;
+      background: #fff;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
     .detail-grid {
       display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       margin-bottom: 12px;
@@ -39,6 +53,12 @@
     .product-chip {
       border: 1px solid #f0d7de; background: #fff; padding: 8px 11px; border-radius: 10px;
       font-size: 12px; color: #555;
+    }
+    .product-chip a {
+      color: #b04a60;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 6px;
     }
     .empty {
       background: #fff; border-radius: 16px; padding: 22px; text-align: center; color: #777;
@@ -53,12 +73,20 @@
     <div class="actions">
       <a class="btn" href="/form">← Kembali ke Form</a>
       <a class="btn" href="/profile">Profil</a>
+      <form action="/history/clear" method="POST" onsubmit="return confirm('Hapus semua history akun ini?')">
+        <button class="btn" type="submit">Clear All</button>
+      </form>
     </div>
 
     {% if histories %}
       {% for h in histories %}
       <div class="entry">
-        <div class="date">{{ h.created_at }}</div>
+        <div class="entry-head">
+          <div class="date">{{ h.created_at }}</div>
+          <form action="/history/delete/{{ h.history_id }}" method="POST" onsubmit="return confirm('Hapus item history ini?')">
+            <button class="mini-btn" type="submit">Hapus item</button>
+          </form>
+        </div>
         <div class="detail-grid">
           <div class="detail-item"><b>Age:</b> {{ h.age }}</div>
           <div class="detail-item"><b>Gender:</b> {{ h.gender }}</div>
@@ -72,7 +100,10 @@
         </div>
         <div class="products">
           {% for p in h.products %}
-          <div class="product-chip">{{ p.routine_step }} - {{ p.product_name }}</div>
+          <div class="product-chip">
+            {{ p.routine_step }} - {{ p.product_name }}
+            <a href="{{ p.buy_link }}" target="_blank" rel="noopener noreferrer">Beli</a>
+          </div>
           {% endfor %}
         </div>
       </div>
