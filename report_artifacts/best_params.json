@@ -1,0 +1,14 @@
+{
+  "score": 0.016922304650611612,
+  "cbf": {
+    "w_category": 1.0,
+    "w_concern": 1.0,
+    "w_skin_type": 1.0,
+    "w_price": 0.05
+  },
+  "cf": {
+    "k_neighbors": 15,
+    "shrinkage": 0.2
+  },
+  "alpha": 0.4
+}

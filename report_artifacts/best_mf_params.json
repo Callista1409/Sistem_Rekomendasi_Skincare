@@ -1,0 +1,7 @@
+{
+  "n_factors": 12,
+  "learning_rate": 0.01,
+  "reg": 0.05,
+  "epochs": 12,
+  "batch_size": 256
+}
